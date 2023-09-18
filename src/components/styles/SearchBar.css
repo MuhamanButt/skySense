@@ -1,0 +1,30 @@
+.form-control{
+    background-color: rgb(2, 0, 31);
+    border-radius: 10px;
+border: none;
+}
+.searchbar
+{
+    background-color: rgb(2, 0, 31);
+    border-radius: 10px;
+filter: drop-shadow(5px 5px 5px black);
+margin-top: 10px;
+}
+.form-control::placeholder
+{
+    color: rgb(186, 186, 186);
+    font-weight: 200;
+}
+.input-group-text
+{
+    background-color: rgb(2, 0, 31);
+    color: white;
+    border: none;
+}
+.searchbar
+{
+    border: 1px solid white;
+}
+.search-icon{
+    border-radius: 100%;
+}
