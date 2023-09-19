@@ -104,15 +104,16 @@ function App() {
       setcityName(result.name);
       setwind(result.wind.speed)
       const unixTimestamp = result.dt;
-      const  dateTime = new Date(unixTimestamp* 1000);
-      const formattedTime = dateTime.toLocaleTimeString();
-      const matches = formattedTime.match(/(\d+):(\d+):(\d+)\s+(am|pm)/i);
-      const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      sethour(parseInt(matches[1], 10)<10?("0"+parseInt(matches[1], 10)):(parseInt(matches[1], 10)));
-      setminute(parseInt(matches[2], 10)<10?("0"+parseInt(matches[2], 10)):(parseInt(matches[2], 10)));
-      setcountry(result.sys.country);
-      settimezone(matches[4].toLowerCase());
-      setday(daysOfWeek[dateTime.getUTCDay() + 1]);
+const dateTime = new Date(unixTimestamp * 1000);
+const formattedTime = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+sethour(formattedTime.split(':')[0]);
+setminute(formattedTime.split(':')[1]);
+setcountry(result.sys.country);
+settimezone(dateTime.toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ')[1].toLowerCase());
+setday(daysOfWeek[dateTime.getUTCDay()]);
+
 
       if (result.weather[0].icon[result.weather[0].icon.length - 1] === "d") {
         setbackGroundImage(bgday);
