@@ -21,6 +21,7 @@ const clickHandler=()=>{
             aria-describedby="basic-addon2"
             className="form-control"
             onChange={changeHandler}
+            required
           />
           <InputGroup.Text
             id="basic-addon2"

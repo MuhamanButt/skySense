@@ -89,7 +89,9 @@ function App() {
   const [day, setday] = useState("");
   const [backGroundImage, setbackGroundImage] = useState("");
   const [LoaderFlag, setLoaderFlag] = useState(true);
+  const [errorFlag, seterrorFlag] = useState(false);
   const getCityData = async (city) => {
+    seterrorFlag(false);
     setLoaderFlag(true);
     try {
       const result = (
@@ -131,9 +133,10 @@ function App() {
       } else {
         setbackGroundImage(bgnight);
       }
-      setLoaderFlag(false)
+      setLoaderFlag(false);
     } catch (error) {
-      console.error("Error fetching weather data:", error);
+      console.log("ERROR")
+      seterrorFlag(true);
     }
   };
 
@@ -148,26 +151,31 @@ function App() {
     >
       <Header></Header>
       <SearchBar getCityData={getCityData}></SearchBar>
-      {LoaderFlag?(<Loader text={"Analyzing The Clouds...git a"}></Loader>):(
-        <div className="row justify-content-center align-self-center ">
-        <Details
-          day={day}
-          hour={hour}
-          min={minute}
-          timezone={timezone}
-          humidity={`${Humidity}%`}
-          windspeed={wind}
-          pressure={pressure}
-          temprature={temprature}
-          feelslike={feelsLike}
-        ></Details>
-        <WeatherImage image={weatherImage}></WeatherImage>
-        <DetailsSecondary
-          city={cityName}
-          country={country}
-          weatherCondition={weatherCondition}
-        ></DetailsSecondary>
-      </div>
+     { errorFlag ? (
+        <h1 className="text-danger">Error!! city {cityName} doesn't exist</h1>
+      ) : (
+      LoaderFlag ? (
+        <Loader text={"Analyzing The Clouds..."}></Loader>
+      ) : 
+        (<div className="row justify-content-center align-self-center ">
+          <Details
+            day={day}
+            hour={hour}
+            min={minute}
+            timezone={timezone}
+            humidity={`${Humidity}%`}
+            windspeed={wind}
+            pressure={pressure}
+            temprature={temprature}
+            feelslike={feelsLike}
+          ></Details>
+          <WeatherImage image={weatherImage}></WeatherImage>
+          <DetailsSecondary
+            city={cityName}
+            country={country}
+            weatherCondition={weatherCondition}
+          ></DetailsSecondary>
+        </div>)
       )}
     </div>
   );
