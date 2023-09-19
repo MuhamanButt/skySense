@@ -150,7 +150,7 @@ function App() {
       <Header></Header>
       <SearchBar getCityData={getCityData}></SearchBar>
      { errorFlag ? (
-        <h1 className="text-danger">Error!! city {cityName} doesn't exist</h1>
+        <h1 className="text-danger">Error!! city doesn't exist</h1>
       ) : (
       LoaderFlag ? (
         <Loader text={"Analyzing The Clouds..."}></Loader>
