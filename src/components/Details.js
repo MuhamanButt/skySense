@@ -20,7 +20,7 @@ const Details = ({
       <div className="row details">
         <div className="col-8 col-md-12">
           <h6 className="mb-4 details-heading">
-            Last Updated : <br />{day},{hour}:{min} {timezone} PST
+            Last Updated : <br />{day},{hour}:{min} PST
             <br />
           </h6>
           <div className="col details-icons">

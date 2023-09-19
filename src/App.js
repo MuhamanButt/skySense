@@ -94,7 +94,7 @@ function App() {
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ab0ed9fb9fb2e3dc62f6dff57220a47c`
         )
       ).data;
-      console.log(result.dt)
+      console.log(result.dt);
       setweatherImage(`wimg${result.weather[0].icon}`);
       setweatherCondition(result.weather[0].description);
       setfeelsLike(Math.round((result.main.feels_like - 273.15) * 10) / 10);
@@ -102,18 +102,26 @@ function App() {
       setpressure(result.main.pressure);
       setHumidity(result.main.humidity);
       setcityName(result.name);
-      setwind(result.wind.speed)
+      setwind(result.wind.speed);
       const unixTimestamp = result.dt;
-const dateTime = new Date(unixTimestamp * 1000);
-const formattedTime = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const dateTime = new Date(unixTimestamp * 1000);
+      const formattedTime = dateTime.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+      const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-sethour(formattedTime.split(':')[0]);
-setminute(formattedTime.split(':')[1]);
-setcountry(result.sys.country);
-settimezone(dateTime.toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ')[1].toLowerCase());
-setday(daysOfWeek[dateTime.getUTCDay()]);
-
+      sethour(formattedTime.split(":")[0]);
+      setminute(formattedTime.split(":")[1]);
+      setcountry(result.sys.country);
+      settimezone(
+        dateTime
+          .toLocaleTimeString("en-US", { timeZoneName: "short" })
+          .split(" ")[1]
+          .toLowerCase()
+      );
+      setday(daysOfWeek[dateTime.getUTCDay()]);
 
       if (result.weather[0].icon[result.weather[0].icon.length - 1] === "d") {
         setbackGroundImage(bgday);
@@ -127,7 +135,7 @@ setday(daysOfWeek[dateTime.getUTCDay()]);
 
   useEffect(() => {
     getCityData(cityName);
-  },[cityName]);
+  }, [cityName]);
 
   return (
     <div
