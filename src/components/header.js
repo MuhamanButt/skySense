@@ -4,7 +4,8 @@ const Header = () => {
   return (
     <div className="row justify-content-start m-0 py-3">
       <div className="col-5 col-md-3 col-lg-2">
-        <img src={logo} alt="" style={{width:"100%"}}/>
+        <img src={logo} alt="" style={{width:"100%",
+filter: "drop-shadow(5px 5px 5px black)"}}/>
       </div>
     </div>
   )

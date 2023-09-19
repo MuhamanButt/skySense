@@ -1,0 +1,12 @@
+.details-s-heading h1{
+font-weight: 700;
+color: white;
+}
+.details-s-weather{
+    color: white;
+
+    font-weight: 400 !important;
+}
+.details-s-weather h1{
+    font-weight: 200;
+}
