@@ -26,6 +26,7 @@ import Details from "./components/Details";
 import DetailsSecondary from "./components/DetailsSecondary";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
 
 // {
 //   "coord": {
@@ -87,7 +88,9 @@ function App() {
   const [wind, setwind] = useState("");
   const [day, setday] = useState("");
   const [backGroundImage, setbackGroundImage] = useState("");
+  const [LoaderFlag, setLoaderFlag] = useState(true);
   const getCityData = async (city) => {
+    setLoaderFlag(true);
     try {
       const result = (
         await axios.get(
@@ -128,6 +131,7 @@ function App() {
       } else {
         setbackGroundImage(bgnight);
       }
+      setLoaderFlag(false)
     } catch (error) {
       console.error("Error fetching weather data:", error);
     }
@@ -144,7 +148,8 @@ function App() {
     >
       <Header></Header>
       <SearchBar getCityData={getCityData}></SearchBar>
-      <div className="row justify-content-center align-self-center ">
+      {LoaderFlag?(<Loader text={"Analyzing The Clouds...git a"}></Loader>):(
+        <div className="row justify-content-center align-self-center ">
         <Details
           day={day}
           hour={hour}
@@ -163,6 +168,7 @@ function App() {
           weatherCondition={weatherCondition}
         ></DetailsSecondary>
       </div>
+      )}
     </div>
   );
 }
