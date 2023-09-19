@@ -4,74 +4,11 @@ import bgnight from "./components/images/bgnight.png";
 import bgday from "./components/images/bgday.png";
 import SearchBar from "./components/SearchBar";
 import WeatherImage from "./components/WeatherImage";
-import wimg01d from "./components/images/01d.png";
-import wimg02d from "./components/images/02d.png";
-import wimg03d from "./components/images/03d.png";
-import wimg04d from "./components/images/04d.png";
-import wimg09d from "./components/images/09d.png";
-import wimg10d from "./components/images/10d.png";
-import wimg11d from "./components/images/11d.png";
-import wimg13d from "./components/images/13d.png";
-import wimg50d from "./components/images/50d.png";
-import wimg01n from "./components/images/01n.png";
-import wimg02n from "./components/images/02n.png";
-import wimg03n from "./components/images/03n.png";
-import wimg04n from "./components/images/04n.png";
-import wimg09n from "./components/images/09n.png";
-import wimg10n from "./components/images/10n.png";
-import wimg11n from "./components/images/11n.png";
-import wimg13n from "./components/images/13n.png";
-import wimg50n from "./components/images/50n.png";
 import Details from "./components/Details";
 import DetailsSecondary from "./components/DetailsSecondary";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
-
-// {
-//   "coord": {
-//     "lon": 67.0822,
-//     "lat": 24.9056
-//   },
-//   "weather": [
-//     {
-//       "id": 721,
-//       "main": "Haze",
-//       "description": "haze",
-//       "icon": "50d"
-//     }
-//   ],
-//   "base": "stations",
-//   "main": {
-//     "temp": 308.05,
-//     "feels_like": 313.21,
-//     "temp_min": 308.05,
-//     "temp_max": 308.05,
-//     "pressure": 1003,
-//     "humidity": 49
-//   },
-//   "visibility": 5000,
-//   "wind": {
-//     "speed": 6.17,
-//     "deg": 220
-//   },
-//   "clouds": {
-//     "all": 75
-//   },
-//   "dt": 1695115964,
-//   "sys": {
-//     "type": 1,
-//     "id": 7576,
-//     "country": "PK",
-//     "sunrise": 1695086339,
-//     "sunset": 1695130352
-//   },
-//   "timezone": 18000,
-//   "id": 1174872,
-//   "name": "Karachi",
-//   "cod": 200
-// }
-
 function App() {
   const [cityName, setcityName] = useState("lahore");
   const [weatherImage, setweatherImage] = useState("");
