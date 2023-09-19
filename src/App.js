@@ -99,7 +99,6 @@ function App() {
           `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ab0ed9fb9fb2e3dc62f6dff57220a47c`
         )
       ).data;
-      console.log(result.dt);
       setweatherImage(`wimg${result.weather[0].icon}`);
       setweatherCondition(result.weather[0].description);
       setfeelsLike(Math.round((result.main.feels_like - 273.15) * 10) / 10);
@@ -135,7 +134,6 @@ function App() {
       }
       setLoaderFlag(false);
     } catch (error) {
-      console.log("ERROR")
       seterrorFlag(true);
     }
   };
@@ -157,7 +155,7 @@ function App() {
       LoaderFlag ? (
         <Loader text={"Analyzing The Clouds..."}></Loader>
       ) : 
-        (<div className="row justify-content-center align-self-center ">
+        (<div className="row justify-content-center align-self-center fade-in-left">
           <Details
             day={day}
             hour={hour}
