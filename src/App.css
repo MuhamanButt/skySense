@@ -1,4 +1,5 @@
 .App { 
+  min-height: 100vh;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
