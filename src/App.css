@@ -1,7 +1,6 @@
 .App {
-  height: 100vh !important;   
+  height: 120vh !important;   
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
-  overflow: hidden;
 }
