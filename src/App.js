@@ -125,9 +125,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(cityName)
     getCityData(cityName);
-    console.log(new Date())
   },[cityName]);
 
   return (
